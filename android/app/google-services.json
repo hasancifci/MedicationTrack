@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "792285484985",
+    "project_id": "ilactakip-4716d",
+    "storage_bucket": "ilactakip-4716d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792285484985:android:2276166ec53d6686428868",
+        "android_client_info": {
+          "package_name": "com.example.ilac_takip_sistemi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "792285484985-jk3ub94eu4ecp0k52bui72bp42r8f4qg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsuORjG_4c3v4ozeqR002WbtLcQg0PBYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "792285484985-jk3ub94eu4ecp0k52bui72bp42r8f4qg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
