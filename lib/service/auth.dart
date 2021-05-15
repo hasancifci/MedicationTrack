@@ -17,6 +17,17 @@ class AuthService {
     return await _auth.signOut();
   }
 
+  getCurrentUser() async{
+    final User user = _auth.currentUser;
+    final uid = user.uid.toString();
+    return uid;
+  }
+
+  Stream<QuerySnapshot> getUsers(){
+    var ref = _firestore.collection("users").snapshots();
+    return ref;
+  }
+
   // Kayıt Olma Fonksiyonu
   Future<User> createUser(String eMail, String name, String surName,
       String gender, String dateOfBirth, String password) async {

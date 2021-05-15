@@ -1,9 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:ilac_takip_sistemi/models/medications.dart';
 import 'package:ilac_takip_sistemi/screens/account_screen.dart';
 import 'package:ilac_takip_sistemi/screens/addMedication.dart';
+import 'package:ilac_takip_sistemi/screens/medicationDetails.dart';
 import 'package:ilac_takip_sistemi/screens/medicationList.dart';
 import 'package:ilac_takip_sistemi/service/medications_service.dart';
+
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -17,6 +20,7 @@ enum Options { hesabim, ayarlar }
 class HomeScreenScreenState extends State {
   String mesaj = "İLAÇ TAKİP OTOMASYONU";
   MedicationsService _medicationsService = MedicationsService();
+  List<Medications> medications;
 
 
   @override
@@ -71,7 +75,7 @@ class HomeScreenScreenState extends State {
                           title: new Text(mypost['name']),
                           subtitle: new Text(mypost['alarm'],style: TextStyle(color: Colors.redAccent),),
                           trailing: new Icon(Icons.alarm),
-                          onTap: (){goToMedicationDetails();},
+                          onTap: (){goToMedicationDetails(mypost);},
                         )
                         ),
                       ),
@@ -170,8 +174,11 @@ class HomeScreenScreenState extends State {
         MaterialPageRoute(builder: (context) => MedicationListScreen()));
   }
 
-  void goToMedicationDetails() {
+  void goToMedicationDetails(DocumentSnapshot mypost) {
     Navigator.push(context,
-        MaterialPageRoute(builder: (context) => MedicationListScreen()));
+        MaterialPageRoute(builder: (context) => MedicationDetailsScreen(mypost)));
+
   }
+
+
 }

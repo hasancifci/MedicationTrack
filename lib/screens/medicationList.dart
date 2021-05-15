@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:ilac_takip_sistemi/models/medications.dart';
 import 'package:ilac_takip_sistemi/screens/addMedication.dart';
 import 'package:ilac_takip_sistemi/service/medications_service.dart';
 
@@ -40,7 +41,7 @@ class MedicationListScreenState extends State {
         return !snapshot.hasData
             ? CircularProgressIndicator()
             : ListView.builder(
-          itemCount: snapshot.data.docs.length,
+          itemCount: 1,
           itemBuilder: (context, index) {
             DocumentSnapshot mypost = snapshot.data.docs[index];
             return Padding(
@@ -56,16 +57,7 @@ class MedicationListScreenState extends State {
                           DataColumn(label: Text('Adet (24s)')),
                           DataColumn(label: Text('Saat')),
                         ],
-                        rows: [
-                          DataRow(
-                              cells: [
-                                DataCell(Text("${mypost['name']}")),
-                                DataCell(Text("${mypost['scale']}")),
-                                DataCell(Text("${mypost['unit']}")),
-                                DataCell(Text("${mypost['alarm']}")),
-                              ]
-                          )
-                        ],
+                        rows: _buildList(context, snapshot.data.docs)
                       ),
                     )
                 ),
@@ -80,5 +72,21 @@ class MedicationListScreenState extends State {
 
   void goToMedicationAdd() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => AddMedicationScreen()));
+  }
+
+  List<DataRow> _buildList(BuildContext context, List<DocumentSnapshot> snapshot) {
+    return  snapshot.map((data) => _buildListItem(context, data)).toList();
+  }
+
+  DataRow  _buildListItem(BuildContext context, DocumentSnapshot data) {
+
+    final medication = Medications.fromSnapshot(data);
+
+    return DataRow(cells: [
+      DataCell(Text(medication.name)),
+      DataCell(Text(medication.scale.toString())),
+      DataCell(Text(medication.unit.toString())),
+      DataCell(Text(medication.alarm)),
+    ]);
   }
 }

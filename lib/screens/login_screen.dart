@@ -101,5 +101,19 @@ class LoginScreenState extends State {
     _authService.signIn(_emailController.text, _passwordController.text).then((value){
       return Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
     });
+    showDialog(
+      context: context,
+      builder: (BuildContext context){
+        return AlertDialog(
+          title: Text("Giriş Bilgileriniz Hatalı Lütfen Kontrol Edip Tekrar Deneyiniz."),
+          actions: [
+            MaterialButton(
+              child: Text("Tamam"),
+              onPressed: (){Navigator.of(context).pop();},
+            )
+          ],
+        );
+      }
+    );
   }
 }

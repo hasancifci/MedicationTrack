@@ -1,28 +1,44 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ilac_takip_sistemi/models/medications.dart';
 import 'package:ilac_takip_sistemi/screens/home_screen.dart';
 import 'package:ilac_takip_sistemi/screens/medicationList.dart';
 import 'package:ilac_takip_sistemi/service/medications_service.dart';
 
-class AddMedicationScreen extends StatefulWidget {
+class MedicationDetailsScreen extends StatefulWidget {
+  DocumentSnapshot medications;
+  MedicationDetailsScreen(this.medications);
   @override
   State<StatefulWidget> createState() {
-    return AddMedicationScreenState();
+    return MedicationDetailsScreenStateState(medications);
   }
 }
 
-class AddMedicationScreenState extends State {
-  String mesaj = "İLAÇ EKLE";
+class MedicationDetailsScreenStateState extends State {
+
+  DocumentSnapshot medications;
+  MedicationDetailsScreenStateState(this.medications);
+  String mesaj = "İLAÇ GÜNCELLE";
   TimeOfDay _time;
   String dosage,timeInterval,unit;
 
-  MedicationsService _medicationsService = MedicationsService();
+  MedicationsService _medicationsService;
 
   TextEditingController _nameController = TextEditingController();
 
+
+
   @override
   void initState() {
+    _medicationsService = new MedicationsService();
+    final medication = Medications.fromSnapshot(medications);
+    _nameController.text = medication.name;
+    dosage  = medication.scale.toString();
+    unit = medication.unit.toString();
     super.initState();
     _time = TimeOfDay.now();
+
   }
 
   @override
@@ -87,9 +103,9 @@ class AddMedicationScreenState extends State {
           value: dosage,
           items: ["0.5", "1.0", "1.5", "2.0", "2.5", "3.0"]
               .map((label) => DropdownMenuItem(
-                    child: Text(label),
-                    value: label,
-                  ))
+            child: Text(label),
+            value: label,
+          ))
               .toList(),
           onChanged: (value) {
             setState(() {
@@ -119,12 +135,12 @@ class AddMedicationScreenState extends State {
 
   void pickTime() async{
     TimeOfDay time = await showTimePicker(context: context, initialTime: _time,
-    builder: (BuildContext context, Widget child){
-      return Theme(data: ThemeData(
-        primaryColor: Colors.greenAccent,
-        accentColor: Colors.greenAccent,
-      ), child: child);
-    }
+        builder: (BuildContext context, Widget child){
+          return Theme(data: ThemeData(
+            primaryColor: Colors.greenAccent,
+            accentColor: Colors.greenAccent,
+          ), child: child);
+        }
     );
     if(_time != null)
       setState(() {
@@ -138,7 +154,7 @@ class AddMedicationScreenState extends State {
         Text("Adet(1 Günde x Tane) : "),
         SizedBox(width: 10.0,),
         DropdownButton(
-          value: timeInterval,
+          value: unit,
           items: ["1", "2", "3", "4 "]
               .map((label) => DropdownMenuItem(
             child: Text(label),
@@ -147,7 +163,7 @@ class AddMedicationScreenState extends State {
               .toList(),
           onChanged: (value) {
             setState(() {
-              timeInterval = value;
+              unit = value;
             });
           },
         ),
@@ -174,12 +190,12 @@ class AddMedicationScreenState extends State {
         SizedBox(
           width: 165,
           child: RaisedButton(
-            child: const Text("K A Y D E T"),
+            child: const Text("G Ü N C E L L E"),
             color: Colors.greenAccent,
             elevation: 4.0,
             splashColor: Colors.green[100],
             onPressed: () {
-              addMedication();
+              updateMedication();
             },
           ),
         )
@@ -191,10 +207,7 @@ class AddMedicationScreenState extends State {
     Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
   }
 
-  void addMedication() {
-    String alarm = "${_time.hour}:${_time.minute}";
-    _medicationsService.addMedications(_nameController.text, double.parse(dosage), int.parse(timeInterval),alarm);
-    Navigator.push(context, MaterialPageRoute(builder: (context) => MedicationListScreen()));
+  void updateMedication() {
 
   }
 }

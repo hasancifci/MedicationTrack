@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class Medications{
   String id;
   String name;
-  int scale;
+  double scale;
   int unit;
   String alarm;
 

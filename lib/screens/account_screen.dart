@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:ilac_takip_sistemi/service/auth.dart';
 
 class AccountScreen extends StatefulWidget {
   @override
@@ -9,7 +12,7 @@ class AccountScreen extends StatefulWidget {
 
 class AccountScreenState extends State {
   String mesaj = "HESABIM";
-
+  AuthService _authService = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,29 +21,45 @@ class AccountScreenState extends State {
           backgroundColor: Colors.greenAccent,
           title: Text(mesaj, style: TextStyle(color: Colors.black)),
         ),
-        body: Center(
-          child: Text("KULLANICININ HESAP BİLGİLERİ BURADA OLACAK..."),
-        )
-    );
+        body: buildBody(context)
+        );
+
   }
 
   buildBody(BuildContext context) {
+
     return Column(
       children: [
         Expanded(
-            child: ListView.builder(
-                itemCount: 1,
-                itemBuilder: (BuildContext context, int index) {
-                  return ListTile(
-                    leading: CircleAvatar(
-                      backgroundImage: NetworkImage(
-                          "https://cdn.pixabay.com/photo/2017/05/15/21/58/drug-icon-2316244_960_720.png"),
+          child: StreamBuilder(
+            stream: _authService.getUsers(),
+            builder: (context, snapshot){
+              return !snapshot.hasData
+                  ? CircularProgressIndicator()
+                  : ListView.builder(
+                itemCount: snapshot.data.docs.length,
+                itemBuilder: (context, index){
+                  DocumentSnapshot mypost = snapshot.data.docs[index];
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      child:(
+                        new Text(_authService.getCurrentUser().toString())
+
+                      ),
+
                     ),
-                    title: Text("Minoset"),
-                    subtitle: Text("Saat 12:00"),
-                    trailing: Icon(Icons.done),
                   );
-                })),
+
+                },
+              );
+            },
+          ),
+        ),
       ],
     );
   }

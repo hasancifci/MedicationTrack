@@ -6,7 +6,7 @@ class MedicationsService {
 
   // Veri Ekleme Fonksiyonu
   Future<void> addMedications(
-      String name, int scale, int unit, String alarm) async {
+      String name, double scale, int unit, String alarm) async {
     var ref = _firestore.collection("medications");
 
     var documentRef = await ref
