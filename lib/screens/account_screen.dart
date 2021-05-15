@@ -49,7 +49,6 @@ class AccountScreenState extends State {
                       ),
                       child:(
                         new Text(_authService.getCurrentUser().toString())
-
                       ),
 
                     ),
