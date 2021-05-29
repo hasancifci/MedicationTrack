@@ -5,8 +5,8 @@ import 'package:ilac_takip_sistemi/screens/account_screen.dart';
 import 'package:ilac_takip_sistemi/screens/addMedication.dart';
 import 'package:ilac_takip_sistemi/screens/medicationDetails.dart';
 import 'package:ilac_takip_sistemi/screens/medicationList.dart';
+import 'package:ilac_takip_sistemi/screens/report_screen.dart';
 import 'package:ilac_takip_sistemi/service/medications_service.dart';
-
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -133,19 +133,19 @@ class HomeScreenScreenState extends State {
               fit: FlexFit.tight,
               flex: 1,
               child: RaisedButton(
-                color: Colors.greenAccent,
-                child: Row(
-                  children: [
-                    Icon(Icons.stacked_line_chart),
-                    SizedBox(
-                      width: 15.0,
-                    ),
-                    Column(
-                      children: [Text("Rapor"), Text("İstatistik")],
-                    ),
-                  ],
-                ),
-                onPressed: () {},
+                  color: Colors.greenAccent,
+                  child: Row(
+                    children: [
+                      Icon(Icons.stacked_line_chart),
+                      SizedBox(
+                        width: 15.0,
+                      ),
+                      Column(
+                        children: [Text("Rapor"), Text("İstatistik")],
+                      ),
+                    ],
+                  ),
+                  onPressed: (){goToReportScreen();}
               ),
             ),
           ],
@@ -179,6 +179,13 @@ class HomeScreenScreenState extends State {
         MaterialPageRoute(builder: (context) => MedicationDetailsScreen(mypost)));
 
   }
+
+  void goToReportScreen() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => ReportScreen()));
+  }
+
+
 
 
 }
