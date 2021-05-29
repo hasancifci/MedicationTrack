@@ -27,6 +27,7 @@ class ReportScreenState extends State {
     fltrNotification.initialize(initilizationsSettings,
         onSelectNotification: notificationSelected);
 
+
     var androidDetails = AndroidNotificationDetails("Channel ID", "Medication Track",
         "This is my channel", importance: Importance.max);
     var iOSDetails = IOSNotificationDetails();
