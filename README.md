@@ -1,7 +1,8 @@
-![Adsız](https://user-images.githubusercontent.com/36739258/123163291-3aa62e00-d47a-11eb-8352-0f63bb826c14.png)
 # İlaç Takip Otomasyonu
 
-A new Flutter application.
+Bu proje Android i¸sletim sistemine sahip kullanıcılara yönelik olup, kullandıkları ilaçları
+takip ederek zamanında kullanım yapmaları ve kalan ilaç adetlerini takip edebilmeleri
+amacıyla geliştirildi.
 
 ## Getting Started
 
