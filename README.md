@@ -40,3 +40,10 @@ kaç adet alınacağı, hangi saatte alınacağı ve kutudaki ilaç sayısı gib
 <p align="center">
 <img src="https://user-images.githubusercontent.com/36739258/123166891-92469880-d47e-11eb-80a9-2418b39a3537.jpg" height="600">
 </p>
+
+Kullanıcıların eklediği ilaçların adı ve zaman bilgisi uygulamanın ana ekranında aşağıda görüldügü gibi listelenmektedir. Burada bilgilerinde güncelleme yapılmak istenen ilacın üstüne tıklandığında aşağıda görülen güncelleme ekranına yönlendirilir ve burada seçilen ilacın bilgileri gerekli alanlara otomatik olarak doldurulur. Güncellenmek istenen
+alanlar degiştirildikten sonra Güncelle butonuna tıklanarak anlık olarak firebase de değişiklikler yapılır ve kullanıcı ana ekrana yönlendirilir.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/36739258/123167312-0c771d00-d47f-11eb-92ce-af82a3d2e78e.jpg" height="600">
+</p>
