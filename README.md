@@ -4,9 +4,9 @@ Bu proje Android işletim sistemine sahip kullanıcılara yönelik olup, kulland
 takip ederek zamanında kullanım yapmaları ve kalan ilaç adetlerini takip edebilmeleri
 amacıyla geliştirildi.
 
-Bu proje Android işletim sistemine sahip kullanıcılara yönelik olup, kullandıkları ilaçları
-takip ederek zamanında kullanım yapmaları ve kalan ilaç adetlerini takip edebilmeleri
-amacıyla geliştirildi.
+Proje kapsamında verilerin güvenli olarak tutulması için Google tarafından desteklenen
+Firebase veri tabanı kullanıldı. Bu verilerin işlenmesi ve arayüzde gösterilmesi için yine
+Google tarafından açık kaynak kod şeklinde sunulan Flutter kütüphanelerinden yararlanıldı.
 
 Bu proje ile kullanıcılar internete bağlı oldukları her yerden ilaçlarının saatinden tam vaktinde 
 haberdar olacak ve kullandıgı ilaçların kalan kullanımlarını görebilecek. Bu proje
