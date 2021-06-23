@@ -1,4 +1,4 @@
-# ilac_takip_sistemi
+# İlaç Takip Otomasyonu
 
 A new Flutter application.
 
