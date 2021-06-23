@@ -47,3 +47,9 @@ alanlar degiştirildikten sonra Güncelle butonuna tıklanarak anlık olarak fir
 <p align="center">
 <img src="https://user-images.githubusercontent.com/36739258/123167312-0c771d00-d47f-11eb-92ce-af82a3d2e78e.jpg" height="600">
 </p>
+
+Uygulamanın ana sayfasının alt kısımında bulunan İlaç Listesi butonua tıklandığında kullanıcı aşağıda görülen ekrana yönlendirilir. Burada kullandığı ilaçların detaylı bilgilerini DataTable yapısı ile görüntüler. Sağ altta bulunan butona tıklanarakta yeni ilaç ekleme alanına gidilebilir.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/36739258/123167558-5eb83e00-d47f-11eb-9f34-81a051361df6.png" height="600">
+</p>
