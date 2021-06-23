@@ -24,4 +24,5 @@ görsellige sahip olması ve sade olması önemli rol oynamaktadır. StreamBuild
 ve başlangıç ekranının görünümü aşagıda görüldüğü gibidir.
 
 
-<img src="https://user-images.githubusercontent.com/36739258/123164551-c53b5d00-d47b-11eb-832a-84311e4e79b5.jpg" height="600">
+
+<div style="text-align:center"><img src="https://user-images.githubusercontent.com/36739258/123164551-c53b5d00-d47b-11eb-832a-84311e4e79b5.jpg" height="600" /></div>
