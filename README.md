@@ -59,3 +59,9 @@ Ana ekrandan Rapor-İstatistik butonuna tıklandığında kullanıcının karş�
 <p align="center">
 <img src="https://user-images.githubusercontent.com/36739258/123167752-a3dc7000-d47f-11eb-9d79-83c864984450.png" height="600">
 </p>
+
+Uygulamaya kayıtlı tüm ilaçların zamanları kontrol edilir. Zamanı gelen ilaçların kullanıcıya hatırlatılması için Flutter kütüphanelerinde yaralanır. Tetiklenen zamana ait ilacın bilgileri aşağıda görüldügü gibi kullanıcıya gösterilir. Bu bildirim aynı zamanda sesli bir uyarıya da sahiptir.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/36739258/123167949-f6b62780-d47f-11eb-935f-742b2092a941.jpg" height="600">
+</p>
