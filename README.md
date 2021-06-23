@@ -13,15 +13,11 @@ haberdar olacak ve kullandıgı ilaçların kalan kullanımlarını görebilecek
 sayesinde kullanıcılar eksik ve zamansız ilaç kullanımının önüne geçmiş ve sağlıklarını
 tehlikeye atabilecek durumlardan korunmuş olacaktır.
 
-## Getting Started
+## Projenin Tasarımı Ve Çalışma Yapısı
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Uygulama ilk önce bir giriş/kayıt ekranı ile başlamaktadır. Buradan giriş yapan veya yeni
+kayıt yapan kullanıcıyı uygulamanın ana ekranı karşılamaktadır. Ana ekranda kullanıcının daha önceden kayıt ettigi ilaçları rahatlıkla görebilmesi için anlık olarak firebase de 
+yapılan degişiklikleri uygulamaya yansıtabilen StreamBuilder widget yapısı kullanıldı.
+Bu widgetın kullanılmasında ki amaç hızlı sonuç vermesi, arayüz kısmında kullanışlı bir
+görsellige sahip olması ve sade olması önemli rol oynamaktadır. StreamBuilder yapısının 
+ve başlangıç ekranının görünümü aşagıda görüldüğü gibidir.
