@@ -1,8 +1,15 @@
 # İlaç Takip Otomasyonu
 
-Bu proje Android i¸sletim sistemine sahip kullanıcılara yönelik olup, kullandıkları ilaçları
+Bu proje Android işletim sistemine sahip kullanıcılara yönelik olup, kullandıkları ilaçları
 takip ederek zamanında kullanım yapmaları ve kalan ilaç adetlerini takip edebilmeleri
 amacıyla geliştirildi.
+Bu proje Android işletim sistemine sahip kullanıcılara yönelik olup, kullandıkları ilaçları
+takip ederek zamanında kullanım yapmaları ve kalan ilaç adetlerini takip edebilmeleri
+amacıyla geliştirildi.
+Bu proje ile kullanıcılar internete bağlı oldukları her yerden ilaçlarının saatinden tam vaktinde 
+haberdar olacak ve kullandıgı ilaçların kalan kullanımlarını görebilecek. Bu proje
+sayesinde kullanıcılar eksik ve zamansız ilaç kullanımının önüne geçmiş ve sağlıklarını
+tehlikeye atabilecek durumlardan korunmuş olacaktır.
 
 ## Getting Started
 
