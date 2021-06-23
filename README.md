@@ -33,3 +33,10 @@ seçerek aşağıda görülen giriş ekranına yönlendirilir. Sisteme kaydı bu
 <p align="center">
 <img src="https://user-images.githubusercontent.com/36739258/123166451-18aeaa80-d47e-11eb-869a-3d4e6540a743.jpg" height="600">
 </p>
+
+Uygulamanın ana sayfasının sol alt kısmında bulunan Hatırlatma Ekle butonuna tıklandığında aşağıda görülen ilaç ekleme ekranına geçilir. Burada ilacın adı, ölçeği, günde 
+kaç adet alınacağı, hangi saatte alınacağı ve kutudaki ilaç sayısı gibi değerler doldurularak ilaç ekleme işlemi gerçekleştirilir. Saat seçimi için güncel saatin üstüne tıklandığında aşagıdaki şekilde görülen zaman seçim aracı kullanılır.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/36739258/123166891-92469880-d47e-11eb-80a9-2418b39a3537.jpg" height="600">
+</p>
