@@ -26,3 +26,10 @@ ve başlangıç ekranının görünümü aşagıda görüldüğü gibidir.
 <p align="center">
 <img src="https://user-images.githubusercontent.com/36739258/123164551-c53b5d00-d47b-11eb-832a-84311e4e79b5.jpg" height="600">
 </p>
+
+Uygulama başlatıldığında kullanıcı daha önceden sisteme kayıtlı ise giriş yap butonunu
+seçerek aşağıda görülen giriş ekranına yönlendirilir. Sisteme kaydı bulunmayan kullanıcı kayıt bölümünden kaydını oluşturup kayıt ol butonuna bastığında kaydı gerçekleşirilir ve giriş ekranına yönlendirilir. Ekranların görünümü aşagıdaki gibidir
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/36739258/123166451-18aeaa80-d47e-11eb-869a-3d4e6540a743.jpg" height="600">
+</p>
