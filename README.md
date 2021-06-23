@@ -53,3 +53,9 @@ Uygulamanın ana sayfasının alt kısımında bulunan İlaç Listesi butonua t�
 <p align="center">
 <img src="https://user-images.githubusercontent.com/36739258/123167558-5eb83e00-d47f-11eb-9f34-81a051361df6.png" height="600">
 </p>
+
+Ana ekrandan Rapor-İstatistik butonuna tıklandığında kullanıcının karşısına aşağıda görülen ekran çıkar. Burada kullanıcın kaydettiği tüm ilaçların kalan kullanımları hakkında bilgiler yer almaktadır. Hangi ilaçtan ne kadar kaldığını bu şekilde takip edebilmektedir. Her ilaç kullanımında bu bilgiler otomatik olarak güncellenir.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/36739258/123167752-a3dc7000-d47f-11eb-9d79-83c864984450.png" height="600">
+</p>
