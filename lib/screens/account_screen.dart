@@ -48,7 +48,7 @@ class AccountScreenState extends State {
                         borderRadius: BorderRadius.circular(5.0),
                       ),
                       child:(
-                        new Text(_authService.getCurrentUser().toString())
+                        new Text(mypost['name'])
                       ),
 
                     ),

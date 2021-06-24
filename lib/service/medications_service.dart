@@ -6,14 +6,13 @@ class MedicationsService {
 
   // Veri Ekleme Fonksiyonu
   Future<void> addMedications(
-      String name, double scale, int unit, String alarm) async {
+      String name, double scale, int unit, String alarm, int remaning) async {
     var ref = _firestore.collection("medications");
-
     var documentRef = await ref
-        .add({'name': name, 'scale': scale, 'unit': unit, 'alarm': alarm});
+        .add({'name': name, 'scale': scale, 'unit': unit, 'alarm': alarm, 'remaning':remaning});
 
     return Medications(
-        id: documentRef.id, name: name, scale: scale, unit: unit, alarm: alarm);
+        id: documentRef.id, name: name, scale: scale, unit: unit, alarm: alarm,remaning: remaning);
   }
 
   // Veri Listeleme Fonksiyonu

@@ -16,7 +16,7 @@ class MedicationDetailsScreen extends StatefulWidget {
 }
 
 class MedicationDetailsScreenStateState extends State {
-
+  CollectionReference _firestore = FirebaseFirestore.instance.collection('medications');
   DocumentSnapshot medications;
   MedicationDetailsScreenStateState(this.medications);
   String mesaj = "İLAÇ GÜNCELLE";
@@ -26,6 +26,7 @@ class MedicationDetailsScreenStateState extends State {
   MedicationsService _medicationsService;
 
   TextEditingController _nameController = TextEditingController();
+  TextEditingController _remaningController = TextEditingController();
 
 
 
@@ -36,6 +37,7 @@ class MedicationDetailsScreenStateState extends State {
     _nameController.text = medication.name;
     dosage  = medication.scale.toString();
     unit = medication.unit.toString();
+    _remaningController.text = medication.remaning.toString();
     super.initState();
     _time = TimeOfDay.now();
 
@@ -67,6 +69,7 @@ class MedicationDetailsScreenStateState extends State {
                         buildMedicationDosageField(),
                         buildMedicationTimeIntervalField(),
                         buildMedicationTimeField(),
+                        buildMedicationRemaningField(),
                         buildMedicationSaveButtonField(),
                       ],
                     ),
@@ -203,11 +206,39 @@ class MedicationDetailsScreenStateState extends State {
     );
   }
 
+  Widget buildMedicationRemaningField() {
+    return Row(
+      children: [
+        Flexible(
+          child: Text("İlaç Sayısı : "),
+        ),
+        SizedBox(width: 10,),
+        Flexible(
+          child: TextFormField(
+            controller: _remaningController,
+          ),
+        )
+      ],
+    );
+  }
+
   void goToHomeScreen() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
   }
 
-  void updateMedication() {
+  void updateMedication() async{
+    _medicationsService = new MedicationsService();
+    final medication = Medications.fromSnapshot(medications);
+    String alarm = "${_time.hour}:${_time.minute}";
+    Map<String, dynamic> data ={
+      'name':_nameController.text,
+      'scale':double.parse(dosage),
+      'unit':int.parse(unit),
+      'alarm':alarm,
+      'remaning':int.parse(_remaningController.text)
+    };
 
+    await _firestore.doc(medication.id).set(data);
+    Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
   }
 }

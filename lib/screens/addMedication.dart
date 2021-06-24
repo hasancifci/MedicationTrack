@@ -18,6 +18,7 @@ class AddMedicationScreenState extends State {
   MedicationsService _medicationsService = MedicationsService();
 
   TextEditingController _nameController = TextEditingController();
+  TextEditingController _remaningController = TextEditingController();
 
   @override
   void initState() {
@@ -51,6 +52,7 @@ class AddMedicationScreenState extends State {
                         buildMedicationDosageField(),
                         buildMedicationTimeIntervalField(),
                         buildMedicationTimeField(),
+                        buildMedicationRemaningField(),
                         buildMedicationSaveButtonField(),
                       ],
                     ),
@@ -186,6 +188,21 @@ class AddMedicationScreenState extends State {
       ],
     );
   }
+  Widget buildMedicationRemaningField() {
+    return Row(
+      children: [
+        Flexible(
+          child: Text("İlaç Sayısı : "),
+        ),
+        SizedBox(width: 10,),
+        Flexible(
+          child: TextFormField(
+            controller: _remaningController,
+          ),
+        )
+      ],
+    );
+  }
 
   void goToHomeScreen() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
@@ -193,8 +210,10 @@ class AddMedicationScreenState extends State {
 
   void addMedication() {
     String alarm = "${_time.hour}:${_time.minute}";
-    _medicationsService.addMedications(_nameController.text, double.parse(dosage), int.parse(timeInterval),alarm);
-    Navigator.push(context, MaterialPageRoute(builder: (context) => MedicationListScreen()));
+    _medicationsService.addMedications(_nameController.text, double.parse(dosage), int.parse(timeInterval),alarm,int.parse(_remaningController.text));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
 
   }
+
+
 }

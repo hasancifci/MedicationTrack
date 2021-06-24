@@ -56,6 +56,7 @@ class MedicationListScreenState extends State {
                           DataColumn(label: Text('Ölçek')),
                           DataColumn(label: Text('Adet (24s)')),
                           DataColumn(label: Text('Saat')),
+                          DataColumn(label: Text('Kalan')),
                         ],
                         rows: _buildList(context, snapshot.data.docs)
                       ),
@@ -87,6 +88,7 @@ class MedicationListScreenState extends State {
       DataCell(Text(medication.scale.toString())),
       DataCell(Text(medication.unit.toString())),
       DataCell(Text(medication.alarm)),
+      DataCell(Text(medication.remaning.toString())),
     ]);
   }
 }
