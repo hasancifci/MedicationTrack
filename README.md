@@ -1,16 +1,67 @@
-# ilac_takip_sistemi
 
-A new Flutter application.
+# İlaç Takip Otomasyonu
 
-## Getting Started
+Bu proje Android işletim sistemine sahip kullanıcılara yönelik olup, kullandıkları ilaçları
+takip ederek zamanında kullanım yapmaları ve kalan ilaç adetlerini takip edebilmeleri
+amacıyla geliştirildi.
 
-This project is a starting point for a Flutter application.
+Proje kapsamında verilerin güvenli olarak tutulması için Google tarafından desteklenen
+Firebase veri tabanı kullanıldı. Bu verilerin işlenmesi ve arayüzde gösterilmesi için yine
+Google tarafından açık kaynak kod şeklinde sunulan Flutter kütüphanelerinden yararlanıldı.
 
-A few resources to get you started if this is your first Flutter project:
+Bu proje ile kullanıcılar internete bağlı oldukları her yerden ilaçlarının saatinden tam vaktinde 
+haberdar olacak ve kullandıgı ilaçların kalan kullanımlarını görebilecek. Bu proje
+sayesinde kullanıcılar eksik ve zamansız ilaç kullanımının önüne geçmiş ve sağlıklarını
+tehlikeye atabilecek durumlardan korunmuş olacaktır.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Projenin Tasarımı Ve Çalışma Yapısı
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Uygulama ilk önce bir giriş/kayıt ekranı ile başlamaktadır. Buradan giriş yapan veya yeni
+kayıt yapan kullanıcıyı uygulamanın ana ekranı karşılamaktadır. Ana ekranda kullanıcının daha önceden kayıt ettigi ilaçları rahatlıkla görebilmesi için anlık olarak firebase de 
+yapılan degişiklikleri uygulamaya yansıtabilen StreamBuilder widget yapısı kullanıldı.
+Bu widgetın kullanılmasında ki amaç hızlı sonuç vermesi, arayüz kısmında kullanışlı bir
+görsellige sahip olması ve sade olması önemli rol oynamaktadır. StreamBuilder yapısının 
+ve başlangıç ekranının görünümü aşagıda görüldüğü gibidir.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/36739258/123164551-c53b5d00-d47b-11eb-832a-84311e4e79b5.jpg" height="600">
+</p>
+
+Uygulama başlatıldığında kullanıcı daha önceden sisteme kayıtlı ise giriş yap butonunu
+seçerek aşağıda görülen giriş ekranına yönlendirilir. Sisteme kaydı bulunmayan kullanıcı kayıt bölümünden kaydını oluşturup kayıt ol butonuna bastığında kaydı gerçekleşirilir ve giriş ekranına yönlendirilir. Ekranların görünümü aşagıdaki gibidir
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/36739258/123166451-18aeaa80-d47e-11eb-869a-3d4e6540a743.jpg" height="600">
+</p>
+
+Uygulamanın ana sayfasının sol alt kısmında bulunan Hatırlatma Ekle butonuna tıklandığında aşağıda görülen ilaç ekleme ekranına geçilir. Burada ilacın adı, ölçeği, günde 
+kaç adet alınacağı, hangi saatte alınacağı ve kutudaki ilaç sayısı gibi değerler doldurularak ilaç ekleme işlemi gerçekleştirilir. Saat seçimi için güncel saatin üstüne tıklandığında aşagıdaki şekilde görülen zaman seçim aracı kullanılır.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/36739258/123166891-92469880-d47e-11eb-80a9-2418b39a3537.jpg" height="600">
+</p>
+
+Kullanıcıların eklediği ilaçların adı ve zaman bilgisi uygulamanın ana ekranında aşağıda görüldügü gibi listelenmektedir. Burada bilgilerinde güncelleme yapılmak istenen ilacın üstüne tıklandığında aşağıda görülen güncelleme ekranına yönlendirilir ve burada seçilen ilacın bilgileri gerekli alanlara otomatik olarak doldurulur. Güncellenmek istenen
+alanlar degiştirildikten sonra Güncelle butonuna tıklanarak anlık olarak firebase de değişiklikler yapılır ve kullanıcı ana ekrana yönlendirilir.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/36739258/123167312-0c771d00-d47f-11eb-92ce-af82a3d2e78e.jpg" height="600">
+</p>
+
+Uygulamanın ana sayfasının alt kısımında bulunan İlaç Listesi butonua tıklandığında kullanıcı aşağıda görülen ekrana yönlendirilir. Burada kullandığı ilaçların detaylı bilgilerini DataTable yapısı ile görüntüler. Sağ altta bulunan butona tıklanarakta yeni ilaç ekleme alanına gidilebilir.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/36739258/123167558-5eb83e00-d47f-11eb-9f34-81a051361df6.png" height="600">
+</p>
+
+Ana ekrandan Rapor-İstatistik butonuna tıklandığında kullanıcının karşısına aşağıda görülen ekran çıkar. Burada kullanıcın kaydettiği tüm ilaçların kalan kullanımları hakkında bilgiler yer almaktadır. Hangi ilaçtan ne kadar kaldığını bu şekilde takip edebilmektedir. Her ilaç kullanımında bu bilgiler otomatik olarak güncellenir.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/36739258/123167752-a3dc7000-d47f-11eb-9d79-83c864984450.png" height="600">
+</p>
+
+Uygulamaya kayıtlı tüm ilaçların zamanları kontrol edilir. Zamanı gelen ilaçların kullanıcıya hatırlatılması için Flutter kütüphanelerinde yaralanır. Tetiklenen zamana ait ilacın bilgileri aşağıda görüldügü gibi kullanıcıya gösterilir. Bu bildirim aynı zamanda sesli bir uyarıya da sahiptir.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/36739258/123167949-f6b62780-d47f-11eb-935f-742b2092a941.jpg" height="600">
+</p>
